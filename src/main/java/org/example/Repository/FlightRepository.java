@@ -10,7 +10,7 @@ public interface FlightRepository extends JpaRepository<Flight, Integer> {
 
     List<Flight> findByAircraftContaining(String aircraftNameToFind);
 
-    List<Flight> findByFlightMileageGreaterThan(int i);
+    List<Flight> findByFlightMileageGreaterThan(int mileage);
 
 
 }

@@ -2,25 +2,26 @@ package org.example.Model;
 
 import org.example.CustomerStatus;
 
-import javax.persistence.*;
+import jakarta.persistence.*
+;
 
 @Entity
-@Table(name = "Customer")
+@Table(name = "Customers")
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "customerId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "customer_id")
     private int customerId;
 
-    @Column(name = "customerName")
+    @Column(name = "customer_name")
     private String customerName;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "customerStatus")
+    @Column(name = "customer_status")
     private CustomerStatus customerStatus;
 
-    @Column(name = "totalCustomerMileage")
+    @Column(name = "total_customer_mileage")
     private int totalCustomerMileage;
 
     // Empty constructor for Hibernate

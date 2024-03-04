@@ -1,26 +1,21 @@
 package org.example.Model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Flight")
+@Table(name = "flight")
 public class Flight {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "flightId")
-    private int flightId;
-
-    @Column(name = "flightNumber")
+    @Column(name = "flight_number")
     private String flightNumber;
 
-    @Column(name = "aircraft")
+    @Column(name = "aircraft_type")
     private String aircraft;
 
-    @Column(name = "totalAircraftSeats")
+    @Column(name = "total_aircraft_seats")
     private int totalAircraftSeats;
 
-    @Column(name = "flightMileage")
+    @Column(name = "flight_mileage")
     private int flightMileage;
 
     // Empty constructor for Hibernate
@@ -36,13 +31,6 @@ public class Flight {
     }
 
     // Getters and setters
-    public int getFlightId() {
-        return flightId;
-    }
-
-    public void setFlightId(int flightId) {
-        this.flightId = flightId;
-    }
 
     public String getFlightNumber() {
         return flightNumber;

@@ -1,41 +1,44 @@
 package org.example.Model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "FlightBooking")
+@Table(name = "CustomerFlights")
 public class FlightBooking {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "bookingId")
-    private int bookingId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "customer_flight_id")
+    private int customerFlightId;
 
     @ManyToOne
-    @JoinColumn(name = "customerId", referencedColumnName = "customerId")
+    @JoinColumn(name = "customer_id", referencedColumnName = "customer_id")
     private Customer customer;
 
     @ManyToOne
-    @JoinColumn(name = "flightId", referencedColumnName = "flightId")
+    @JoinColumn(name = "flight_number", referencedColumnName = "flight_number")
     private Flight flight;
+
+    @Column(name = "total_customer_mileage")
+    private int totalCustomerMileage;
 
     // Empty constructor for Hibernate
     public FlightBooking() {
     }
 
     // Parameterized constructor
-    public FlightBooking(Customer customer, Flight flight) {
+    public FlightBooking(Customer customer, Flight flight, int totalCustomerMileage) {
         this.customer = customer;
         this.flight = flight;
+        this.totalCustomerMileage = totalCustomerMileage;
     }
 
-    // Getters and setters
-    public int getBookingId() {
-        return bookingId;
+    public int getCustomerFlightId() {
+        return customerFlightId;
     }
 
-    public void setBookingId(int bookingId) {
-        this.bookingId = bookingId;
+    public void setCustomerFlightId(int customerFlightId) {
+        this.customerFlightId = customerFlightId;
     }
 
     public Customer getCustomer() {
@@ -52,5 +55,13 @@ public class FlightBooking {
 
     public void setFlight(Flight flight) {
         this.flight = flight;
+    }
+
+    public int getTotalCustomerMileage() {
+        return totalCustomerMileage;
+    }
+
+    public void setTotalCustomerMileage(int totalCustomerMileage) {
+        this.totalCustomerMileage = totalCustomerMileage;
     }
 }
